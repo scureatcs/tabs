@@ -9,7 +9,7 @@ import { Component, Input, TemplateRef, ViewChild } from '@angular/core';
   styleUrl: './tab.component.css',
 })
 export class TabComponent {
-  @Input() title = "";
-  @ViewChild('template') template!: TemplateRef<any>;
+  @Input() title = '';
+  @ViewChild('template', { static: true }) template!: TemplateRef<any>;
   constructor() {}
 }

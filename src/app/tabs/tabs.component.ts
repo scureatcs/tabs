@@ -1,10 +1,4 @@
-import {
-  AfterContentInit,
-  Component,
-  ContentChildren,
-  Input,
-  QueryList,
-} from '@angular/core';
+import { Component, ContentChildren, Input, QueryList } from '@angular/core';
 import { TabComponent } from '../tab/tab.component';
 import { CommonModule } from '@angular/common';
 
@@ -15,14 +9,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './tabs.component.html',
   styleUrl: './tabs.component.css',
 })
-export class TabsComponent implements AfterContentInit {
+export class TabsComponent {
   @ContentChildren(TabComponent) tabs!: QueryList<TabComponent>;
 
   /**
    * Either the title or index of the tab you want to be active by default
    */
   @Input() defaultTabId: number | string = 0;
-  
+
   public activeTabIndex: number = 0;
 
   selectTab(index: number): void {
