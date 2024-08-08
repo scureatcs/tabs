@@ -1,15 +1,15 @@
 import { NgIf } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, TemplateRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-tab',
   standalone: true,
   imports: [NgIf],
   templateUrl: './tab.component.html',
-  styleUrl: './tab.component.css'
+  styleUrl: './tab.component.css',
 })
 export class TabComponent {
-    isActive = false;
-    @Input() title!: string;
-    constructor() {}
+  @Input() title = "";
+  @ViewChild('template') template!: TemplateRef<any>;
+  constructor() {}
 }

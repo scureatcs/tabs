@@ -1,6 +1,18 @@
 <div class="tabs">
-  <button type="button" (click)="selectTab(tab)" *ngFor="let tab of tabs">
+  <button
+    class="tab-button"
+    type="button"
+    (click)="selectTab(i)"
+    *ngFor="let tab of tabs; let i = index"
+  >
     {{ tab.title }}
   </button>
-  <ng-content></ng-content>
+
+  <div class="tab-content">
+    <ng-container *ngFor="let tab of tabs; let i = index">
+      <ng-container *ngIf="i === activeTabIndex">
+        <ng-container *ngTemplateOutlet="tab.template"> </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
 </div>
